@@ -1,32 +1,37 @@
 # my-react-caclculator
-Testing out Vite's react-ts template with a simple beginner project.
-# React + TypeScript + Vite
+Testing out Vite's react-ts template with a simple beginner project from [this app-ideas project](https://github.com/florinpop17/app-ideas).
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Setup
+It's super simple! Clone this project. Run pnpm install, and then pnpm dev!
 
-Currently, two official plugins are available:
+## User Stories
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   [ ] User can see a display showing the current number entered or the
+result of the last operation.
+-   [ ] User can see an entry pad containing buttons for the digits 0-9, 
+operations - '+', '-', '/', and '=', a 'C' button (for clear), and an 'AC'
+button (for clear all).
+-   [ ] User can enter numbers as sequences up to 8 digits long by clicking on
+digits in the entry pad. Entry of any digits more than 8 will be ignored.
+-   [ ] User can click on an operation button to display the result of that
+operation on:
+    * the result of the preceding operation and the last number entered OR
+    * the last two numbers entered OR
+    * the last number entered
+-   [ ] User can click the 'C' button to clear the last number or the last
+operation. If the users last entry was an operation the display will be
+updated to the value that preceded it.
+-   [ ] User can click the 'AC' button to clear all internal work areas and
+to set the display to 0.
+-   [ ] User can see 'ERR' displayed if any operation would exceed the 
+8 digit maximum.
 
-## Expanding the ESLint configuration
+## Bonus features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+-   [ ] User can click a '+/-' button to change the sign of the number that is
+currently displayed.
+-   [ ] User can see a decimal point ('.') button on the entry pad to that 
+allows floating point numbers up to 3 places to be entered and operations to
+be carried out to the maximum number of decimal places entered for any one
+number.
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
