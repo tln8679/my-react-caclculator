@@ -17,12 +17,12 @@ function CalculatorButton(props: {
       onClick={() => {
         if (buttonType !== 'Execution') {
           setCalculationString((prevProps) => {
-            return prevProps === '0' ? displayLabel : `${prevProps} ${displayLabel}`
+            return prevProps === '0' ? displayLabel : `${prevProps} ${displayLabel}`;
           });
         }
         else {
           // Execute parser
-          if(execute) execute(displayLabel)
+          if(execute) execute(displayLabel);
         }
       }}
     >

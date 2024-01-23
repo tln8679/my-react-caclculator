@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import Grid from '@mui/material/Grid';
-import { getClearDisplay } from '../../utils/MathParser';
+import { getClearDisplay, calculate } from '../../utils/MathParser';
 import CalculatorButton from '../CalculatorButton/CalculatorButton';
 import CalculatorInputBox from '../CalculatorInputBox/CalculatorInputBox';
 import './CalculatorBody.css';
 
 function CalculatorBody () {
-  const [calculationString, setCalculationString] = useState('0')
+  const [calculationString, setCalculationString] = useState('0');
 
   // operands are numbers from 0 to 10
   const operandButtons = [...Array(10)].map((_, i) => {
@@ -14,7 +14,7 @@ function CalculatorBody () {
       <Grid key={`operand${i.toString()}`} item xs={4}>
         <CalculatorButton setCalculationString={setCalculationString} buttonType="Operand" displayLabel={i.toString()}/>
       </Grid>
-    )
+    );
   });
   /**
    * User can see an entry pad containing buttons for the digits 0-9, 
@@ -26,7 +26,7 @@ function CalculatorBody () {
       <Grid key={`operator${operator}`} item xs={4}>
         <CalculatorButton setCalculationString={setCalculationString} buttonType="Operator" displayLabel={operator}/>
       </Grid>
-    )
+    );
   });
 
   // Delegating parse logic to a util to seperate concerns
@@ -34,17 +34,17 @@ function CalculatorBody () {
     let newDisplayValue: string | undefined = '0';
     switch(executionType) {
       case '=':
-        // Will implement later
-        break
+        newDisplayValue = calculate(calculationString);
+        break;
       case 'C':
       case 'AC':
-        newDisplayValue = getClearDisplay()
-        break
+        newDisplayValue = getClearDisplay();
+        break;
       default:
-        newDisplayValue = '0'
+        newDisplayValue = '0';
     }
     setCalculationString(newDisplayValue);
-  }
+  };
 
   /**
    * User can see an entry pad containing buttons for the digits 0-9, 
@@ -56,7 +56,7 @@ function CalculatorBody () {
       <Grid key={`operator${operator}`} item xs={4}>
         <CalculatorButton setCalculationString={setCalculationString} buttonType="Execution" displayLabel={operator} execute={execute}/>
       </Grid>
-    )
+    );
   });
 
   return (
@@ -71,7 +71,7 @@ function CalculatorBody () {
     </Grid>
       
     </div>
-  )
+  );
 }
 
 export default CalculatorBody;
