@@ -63,6 +63,13 @@ function createTree(fullString: string) {
   return output;
 }
 
+/**
+ * 
+ * Implementation is based on Abstact Syntax Tree from https://gist.github.com/kermit-klein/ee4d5ced1d389b714e055ac6c39b5ac8
+ * 
+ * @param fullString string input of operands and operators
+ * @returns new display value for the user
+ */
 function calculate(fullString: string) {
   function parseFromTree(obj: TreeNode): number {
     switch (obj.type) {
