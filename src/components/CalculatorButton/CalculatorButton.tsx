@@ -1,20 +1,29 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import Button from "@mui/material/Button";
+import Button from '@mui/material/Button';
 
-type ButtonType = "Operand" | "Operator";
+type ButtonType = 'Operand' | 'Operator' | 'Execution';
 
 function CalculatorButton(props: {
   displayLabel: string;
   buttonType: ButtonType;
   setCalculationString: React.Dispatch<React.SetStateAction<string>>;
+  execute?: Function | undefined
 }) {
-  const { displayLabel, buttonType, setCalculationString } = props;
+  const { displayLabel, buttonType, setCalculationString, execute } = props;
   return (
     <Button
       variant='contained'
-      color={buttonType === "Operand" ? "primary" : "secondary"}
+      color={buttonType === 'Operand' ? 'primary' : ( buttonType === 'Operator' ? 'secondary' : 'success')}
       onClick={() => {
-        setCalculationString((calculationString) => `${calculationString}${displayLabel}`);
+        if (buttonType !== 'Execution') {
+          setCalculationString((prevProps) => {
+            return prevProps === '0' ? displayLabel : `${prevProps} ${displayLabel}`
+          });
+        }
+        else {
+          // Execute parser
+          if(execute) execute(displayLabel)
+        }
       }}
     >
       {displayLabel}
