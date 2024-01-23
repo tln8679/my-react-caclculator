@@ -18,7 +18,7 @@ function createTree(fullString: string) {
   }
 
   function isNumber(e: string | undefined) {
-    return e !== undefined && e.match(/^-?([1-9][0-9]*|([0]))$/) !== null;
+    return e !== undefined && !['+', '-', '/', 'x'].includes(e);
   }
 
   function jumpNext() {
@@ -74,7 +74,7 @@ function calculate(fullString: string) {
   function parseFromTree(obj: TreeNode): number {
     switch (obj.type) {
       case "number":
-        return parseInt(obj.value!);
+        return parseFloat(obj.value!);
       case "^":
         return parseFromTree(obj.left!) ** parseFromTree(obj.right!);
       case "+":

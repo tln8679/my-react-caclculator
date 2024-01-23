@@ -15,7 +15,12 @@ function CalculatorBody () {
         <CalculatorButton setCalculationString={setCalculationString} buttonType="Operand" displayLabel={i.toString()}/>
       </Grid>
     );
-  });
+  }).concat(
+    <Grid key={'operanddecimal'} item xs={4}>
+        <CalculatorButton setCalculationString={setCalculationString} buttonType="Operand" displayLabel='.'/>
+      </Grid>
+  );
+
   /**
    * User can see an entry pad containing buttons for the digits 0-9, 
    *   operations - '+', '-', '/', 'x', and '=', a 'C' button (for clear), and an 'AC'
@@ -61,13 +66,13 @@ function CalculatorBody () {
 
   return (
     <div className='body-border'>
-    <Grid container spacing={2}>
+    <Grid container spacing={1}>
       <Grid item xs={12}>
         <CalculatorInputBox calculationString={ calculationString }/>
       </Grid>
       { operandButtons }
-      { operatorButtons }
       { executionButtons }
+      { operatorButtons }
     </Grid>
       
     </div>
