@@ -16,7 +16,6 @@ function CalculatorBody () {
       </Grid>
     )
   });
-
   /**
    * User can see an entry pad containing buttons for the digits 0-9, 
    *   operations - '+', '-', '/', 'x', and '=', a 'C' button (for clear), and an 'AC'
