@@ -13,7 +13,7 @@ function CalculatorBody() {
   const operandButtons = [...Array(10)]
     .map((_, i) => {
       return (
-        <Grid key={`operand${i.toString()}`} item xs={4}>
+        <Grid key={`operand${i.toString()}`} item xs={4} sm={3}>
           <CalculatorButton
             setCalculationString={setCalculationString}
             buttonType="Operand"
@@ -24,7 +24,7 @@ function CalculatorBody() {
       );
     })
     .concat(
-      <Grid key={"operanddecimal"} item xs={4}>
+      <Grid key={"operanddecimal"} item xs={4} sm={3}>
         <CalculatorButton
           setCalculationString={setCalculationString}
           buttonType="Operand"
@@ -41,7 +41,7 @@ function CalculatorBody() {
    */
   const operatorButtons = ["+", "-", "/", "x"].map((operator) => {
     return (
-      <Grid key={`operator${operator}`} item xs={4}>
+      <Grid key={`operator${operator}`} item xs={4} sm={3}>
         <CalculatorButton
           setCalculationString={setCalculationString}
           setErrorHighlight={setErrorHighlight}
@@ -76,7 +76,7 @@ function CalculatorBody() {
    */
   const executionButtons = ["=", "C", "AC"].map((operator) => {
     return (
-      <Grid key={`operator${operator}`} item xs={4}>
+      <Grid key={`operator${operator}`} item xs={4} sm={3}>
         <CalculatorButton
           setCalculationString={setCalculationString}
           setErrorHighlight={setErrorHighlight}

@@ -2,6 +2,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import "./CalculatorInputBox.css";
+import { Typography } from "@mui/material";
 
 function CalculatorInputBox(props: {
   calculationString: string;
@@ -14,7 +15,9 @@ function CalculatorInputBox(props: {
       <CssBaseline />
       <Container maxWidth="lg">
         <Box className={`calc-display ${errorHighlight ? "error" : ""}`}>
-          <h2>{calculationString}</h2>
+          <Typography variant="body1" className="calc-display-typography">
+            {calculationString}
+          </Typography>
         </Box>
       </Container>
     </>
