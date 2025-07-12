@@ -1,0 +1,14 @@
+.calc-display {
+  background-color: #e0f2fe;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.calc-display.error {
+  border: 2px solid red;
+  box-shadow: 0 0 10px red;
+}
